@@ -1,4 +1,22 @@
 div#navbar {width: auto;}
+div.longText {padding: 10px 0px;}
+div.short span {
+    font-weight: normal;
+}
+.floatright {
+    font-size: 12px;
+    text-align: right;
+}
+.ya-share2__container_size_m .ya-share2__item {
+    border: none;
+    float: none;
+    margin: 0px;
+    width: auto;
+}
+.ya-share2, .ya-share2 {
+    text-align: center;
+    margin: 10px 0px;
+}
 .navbar-header {height: 117px; padding-left: 220px;}
 .scrollToTop{background-color:#12a3df; color:#fff}
 .scrollToTop:hover, .scrollToTop:focus{background-color:#fff; color:#12a3df; border-color:1px solid #12a3df}

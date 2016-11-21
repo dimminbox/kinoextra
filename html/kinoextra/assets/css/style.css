@@ -199,7 +199,7 @@ figure.effect-lily a:hover img{-webkit-transform:translate3d(0,0,0); transform:t
 .ppost_nav li .media-left{border:1px solid #ddd; padding:4px; margin-right:5px; float:left}
 .middle_content{border-bottom:1px solid #e3e3e3; border-left:1px solid #e3e3e3; border-right:1px solid #e3e3e3; display:inline; float:left; padding-bottom:25px; padding-left:10px; padding-right:10px; width:100%}
 .middle_content > h2, .featured_title{color:#fff; font-size:19px; margin:0 0 20px -10px; padding:9px 25px; text-align:center; width:103.4%}
-.middle_content > h1.filmname, .featured_title{color:#fff; font-weight: bold; font-size:15px; margin:0 0 5px -10px; padding:10px 12px; text-align:center; width:103.4%}
+.middle_content > h1.filmname, .featured_title{color:#fff; font-weight: bold; font-size:15px; margin:0 0 5px -10px; padding:10px 12px; text-align:left; width:103.4%}
 .featured_slider{float:left; display:inline; width:100%}
 .single_iteam{float:left; display:inline; width:100%; position:relative}
 .single_iteam img{border-radius:5px; width:100%}
