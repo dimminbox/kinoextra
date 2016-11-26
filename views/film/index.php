@@ -1,38 +1,19 @@
-<?php
 
-use yii\helpers\Html;
-use yii\grid\GridView;
+<div class="middle_content">
+    <h1 class="filmname"><?= \app\controllers\CController::$h1?></h1>
+    <p style=""><?= \app\controllers\CController::$description?></p>
 
-/* @var $this yii\web\View */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-
-$this->title = 'Films';
-$this->params['breadcrumbs'][] = $this->title;
-?>
-<div class="film-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Create Film', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'image',
-            'year',
-            'data_modified',
-            'data_created',
-            // 'visited',
-            // 'rating',
-            // 'active',
-            // 'url:url',
-            // 'sort',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+    <ul class="featured_nav">
+        <?php
+        echo \yii\widgets\ListView::widget([
+            'dataProvider' => $dataProvider,
+            'itemView' => '_item',
+            'summary' => '',
+            'options' => ['id' => 'productlist'],
+            'pager' => [
+                'maxButtonCount' => 5
+            ]
+        ]);
+        ?>
+    </ul>
 </div>

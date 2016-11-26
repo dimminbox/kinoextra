@@ -3,6 +3,7 @@
 $params = require(__DIR__ . '/params.php');
 
 $config = [
+    'language' => 'ru',
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -31,21 +32,29 @@ $config = [
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
-                [
+                    [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '/' => 'film/index',
+                '/page/<page:\d+>' => 'film/index',
+                '/<url:filmy\w+>/page/<page:\d+>' => 'film/index',
+                '/<url:filmy\w+>' => 'film/index',
+                
+                '/films/year/<year:\d+>' => 'film/index',
+                '/films/year/<year:\d+>/page/<page:\d+>' => 'film/index',
+                
+                '/<genre:films\w+>/page/<page:\d+>' => 'film/index',
+                '/<genre:films\w+>' => 'film/index',
             ],
         ],
-        */
     ],
     'params' => $params,
 ];

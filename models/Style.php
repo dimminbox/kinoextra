@@ -28,13 +28,22 @@ class Style extends \yii\db\ActiveRecord
         return 'style';
     }
 
+    public function getName() {
+        return $this->name;
+    }
+     public function getTitle() {
+        return $this->title;
+    }
+    public function getMetaDescription() {
+        return $this->meta_description;
+    }
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['name', 'title', 'meta_description', 'parent', 'sort', 'url', 'active'], 'required'],
+            [['name', 'title', 'meta_description', 'parent', 'sort', 'url', 'active', 'main'], 'required'],
             [['data_modified'], 'safe'],
             [['parent', 'sort', 'active'], 'integer'],
             [['meta_keywords'], 'string'],

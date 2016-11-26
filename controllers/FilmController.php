@@ -12,13 +12,12 @@ use yii\filters\VerbFilter;
 /**
  * FilmController implements the CRUD actions for Film model.
  */
-class FilmController extends Controller
-{
+class FilmController extends CController {
+
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -29,18 +28,59 @@ class FilmController extends Controller
         ];
     }
 
-    /**
-     * Lists all Film models.
-     * @return mixed
-     */
-    public function actionIndex()
-    {
+    public function actionIndex($url = '', $page = 0, $genre='') {
+
+        $films = Film::find()->andWhere(['film.active' => 1])->joinWith(['style', 'lang', 'comment'])
+                        ->orderBy('film.sort DESC, film.data_created DESC')->groupBy('film.id')->distinct();
+
+        if ($url != '') {
+            $films->andWhere(['style.url' => $url]);
+        }
+        if ($genre != '') {
+            $films->joinWith(['genre']);
+            $films->andWhere(['genre.url' => $genre]);
+        }
+        
+        $pages = new \yii\data\Pagination(['totalCount' => $films->count(), 'pageSize' => 15, 'defaultPageSize' => 15]);
+        $pages->pageSizeParam = false;
+        $pages->forcePageParam = false;
+        $pages->urlManager = new \app\components\CustomUrlManager;
+
         $dataProvider = new ActiveDataProvider([
-            'query' => Film::find(),
+            'query' => $films,
+            'pagination' => $pages
         ]);
 
+
+        if ($genre!='') {
+            
+        }
+        elseif ($url == '') {
+
+            CController::$metaTitle = Yii::$app->params['_seo_main_title'];
+            CController::$h1 = Yii::$app->params['_seo_main_title'];
+            CController::$metaDescription = Yii::$app->params['_seo_main_description'];
+            CController::$description = Yii::$app->params['_seo_main_description'];
+        } else {
+            
+            $models = $dataProvider->getModels();
+            $curFilm = array_shift($models);
+            if (!empty($curFilm->style)) {
+                $curStyle = $curFilm->style[0];
+                CController::$h1 = $curStyle->getName();
+                CController::$metaTitle = $curStyle->getTitle();
+                CController::$metaDescription = $curStyle->getMetaDescription();
+                CController::$description = CController::$metaDescription;
+            }
+        }
+        if ($page != 0) {
+            CController::$metaTitle = CController::$metaTitle . " страница $page";
+            CController::$metaDescription = CController::$metaDescription . " страница $page";
+        }
+
+
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+                    'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -49,10 +89,9 @@ class FilmController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionView($id)
-    {
+    public function actionView($id) {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+                    'model' => $this->findModel($id),
         ]);
     }
 
@@ -61,15 +100,14 @@ class FilmController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
+    public function actionCreate() {
         $model = new Film();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
-                'model' => $model,
+                        'model' => $model,
             ]);
         }
     }
@@ -80,15 +118,14 @@ class FilmController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id)
-    {
+    public function actionUpdate($id) {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
-                'model' => $model,
+                        'model' => $model,
             ]);
         }
     }
@@ -99,8 +136,7 @@ class FilmController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
-    {
+    public function actionDelete($id) {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
@@ -113,12 +149,12 @@ class FilmController extends Controller
      * @return Film the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
-    {
+    protected function findModel($id) {
         if (($model = Film::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
 }

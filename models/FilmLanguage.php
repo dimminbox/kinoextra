@@ -24,37 +24,55 @@ use Yii;
  * @property string $trailer
  * @property string $trailerMoeVideo
  */
-class FilmLanguage extends \yii\db\ActiveRecord
-{
+class FilmLanguage extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'film_language';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            [['id', 'id_lang', 'name', 'title', 'short', 'description', 'country', 'director', 'actor', 'videoMoonWalk', 'kinoPoiskId', 'meta_description', 'style', 'trailer', 'trailerMoeVideo'], 'required'],
-            [['id', 'id_lang'], 'integer'],
-            [['short', 'description', 'actor', 'video', 'videoMoonWalk', 'trailer', 'trailerMoeVideo'], 'string'],
-            [['name'], 'string', 'max' => 100],
-            [['title'], 'string', 'max' => 200],
-            [['country', 'meta_description'], 'string', 'max' => 512],
-            [['director', 'kinoPoiskId', 'style'], 'string', 'max' => 255],
+                [['id', 'id_lang', 'name', 'title', 'short', 'description', 'country', 'director', 'actor', 'videoMoonWalk', 'kinoPoiskId', 'meta_description', 'style', 'trailer', 'trailerMoeVideo'], 'required'],
+                [['id', 'id_lang'], 'integer'],
+                [['short', 'description', 'actor', 'video', 'videoMoonWalk', 'trailer', 'trailerMoeVideo'], 'string'],
+                [['name'], 'string', 'max' => 100],
+                [['title'], 'string', 'max' => 200],
+                [['country', 'meta_description'], 'string', 'max' => 512],
+                [['director', 'kinoPoiskId', 'style'], 'string', 'max' => 255],
         ];
     }
 
+    public function getName() {
+        return $this->name;
+    }
+
+    public function getDirector() {
+        return $this->director;
+    }
+    public function getActor() {
+        return $this->actor;
+    }
+    public function getCountry() {
+        return $this->country;
+    }
+    
+    public function getShortDesc() {
+        return $this->short;
+    }
+    
+    public function getLongDesc() {
+        return $this->description;
+    }
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'ID',
             'id_lang' => 'Id Lang',
@@ -79,8 +97,8 @@ class FilmLanguage extends \yii\db\ActiveRecord
      * @inheritdoc
      * @return FilmLanguageQuery the active query used by this AR class.
      */
-    public static function find()
-    {
+    public static function find() {
         return new FilmLanguageQuery(get_called_class());
     }
+
 }

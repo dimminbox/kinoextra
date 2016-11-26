@@ -33,6 +33,14 @@ div.promo div.mini {
     font-size: 14px;
     max-height: 380px;
 }
+.entry img {
+    height: 250px;
+    max-width: 175px;
+}
+
+.media img {
+    width: 100px;
+}
 .alignleft {
     float: left;
     width: auto;
@@ -108,7 +116,7 @@ div.zvezda {
     background-color: #12a3df;
     font-weight: bold;
     margin: 0 0 0px -10px;
-    padding: 9px 25px;
+    padding: 9px 10px;
     text-align: left;
     width: 103.4%;
 }
@@ -208,6 +216,15 @@ figure.effect-lily a:hover img{-webkit-transform:translate3d(0,0,0); transform:t
 .slider_tittle:hover, .slider_tittle:focus{color:#fff}
 .featured_nav{}
 .featured_nav li{border-bottom:1px dashed #ddd; display:inline; float:left; margin-bottom:30px; width:100%}
+ul.pagination {
+    text-align: center;
+}
+ul.pagination li {
+    margin: 0px;
+    float: none;
+    width: auto;
+    border: none;
+}
 .featured_nav li p{line-height:1.5em}
 .right_sidebar{float:left; display:inline; width:100%}
 .featured_img:hover img{opacity:1; -webkit-transform:translate3d(0,0,0) scale(1); transform:translate3d(0,0,0) scale(1)}

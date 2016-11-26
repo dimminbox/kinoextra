@@ -1,8 +1,14 @@
+<?php
+
+use app\widgets\MainStyle\MainStyle;
+use app\widgets\PopularFilms\PopularFilms;
+?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cyber Tech</title>
-        <meta charset="utf-8">
+        <title><?= \app\controllers\CController::$metaTitle ?></title>
+        <meta name="description" content="<?= \app\controllers\CController::$metaDescription ?>"/>
+              <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
@@ -11,6 +17,7 @@
         <link rel="stylesheet" type="text/css" href="/css/slick.css">
         <link rel="stylesheet" type="text/css" href="/css/theme.css">
         <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <meta name="revisit-after" content="1 days" />
         <!--[if lt IE 9]>
         <script src="assets/js/html5shiv.min.js"></script>
         <script src="assets/js/respond.min.js"></script>
@@ -18,7 +25,7 @@
 
         <!-- Put this script tag to the <head> of your page -->
         <script type="text/javascript" src="//vk.com/js/api/openapi.js?63"></script>
-
+        <meta name='yandex-verification' content='6c8c6572d093b4a9' />
         <script type="text/javascript">
             VK.init({apiId: 3158676, onlyWidgets: true});
         </script>
@@ -76,55 +83,10 @@
                     <div class="col-lg-3 col-md-3 col-sm-4">
                         <div class="left_sidebar">
                             <div class="single_widget">
-                                <h2>Онлайн меню</h2>
-                                <ul class="post_nav">
-                                    <li><a href="pages/single_page.html">На реальных событиях</a></li>
-                                    <li><a href="pages/single_page.html">Про море</a></li>
-                                    <li><a href="pages/single_page.html">Про животных</a></li>
-                                    <li><a href="pages/single_page.html">О фокусниках</a></li>
-                                    <li><a href="pages/single_page.html">Про путешествия</a></li>
-                                    <li><a href="pages/single_page.html">Сериалы</a></li>
-                                </ul>
+<?= MainStyle::widget() ?>
                             </div>
                             <div class="single_widget">
-                                <h2>Популярные фильмы</h2>
-                                <ul class="ppost_nav wow fadeInDown">
-                                    <li>
-                                        <div class="media"><a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
-                                            <div class="media-body"><a class="catg_title" href="pages/single_page.html">Секс ради выживания (Three)</a></div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="media"><a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
-                                            <div class="media-body"><a class="catg_title" href="#">Последнее племя - Первобытные (The lost tribe)</a></div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="media"><a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
-                                            <div class="media-body"><a class="catg_title" href="#">Остров надежды (Stranded)</a></div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="media"><a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
-                                            <div class="media-body"><a class="catg_title" href="#">Унесённые морем (Swept Away)</a></div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="media"><a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
-                                            <div class="media-body"><a class="catg_title" href="#">Шесть дней, семь ночей (Six Days Seven Nights)</a></div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="media"><a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
-                                            <div class="media-body"><a class="catg_title" href="#">Черные паруса (Black sails)</a></div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="media"><a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
-                                            <div class="media-body"><a class="catg_title" href="#">Путешествие на край земли(To the Ends of the Earth) Мини-сериал</a></div>
-                                        </div>
-                                    </li>
-                                </ul>
+<?= PopularFilms::widget() ?>
                             </div>
                             <div class="single_widget">
                                 <h2>Интересные вещи</h2>
@@ -132,101 +94,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-8">
-                        <div class="middle_content">
-                            <h1 class="filmname">Самые интересные и достойные фильмы смотреть онлайн. Их стоит посмотреть до конца.</h1>
-                            <p style="">Здесь самые интересные, достойные фильмы онлайн, смотреть которые обязательно стоит до конца. Список интересных и редких фильмов, которые не разрекламированы. Это очень интересное кино держит в напряжении до самого конца. Представлен список фильмов редких жанров - про море, про фокусников, про футбол, фильмы на реальных событиях и другие.</p>
-                            <ul class="featured_nav">
-                                <li class="wow fadeInDown">
-
-                                    <div class="film" itemscope="" itemtype="http://schema.org/Movie">			
-
-                                        <h2 class="filmname">
-                                            <a href="/film/snouden" itemprop="name">Сноуден (Snowden)</a>
-                                        </h2>
-
-                                        <div class="postdate"> 
-                                            <div class="head"><span>Категории: </span><strong><div itemprop="genre">На реальных событиях</div> </strong> </div>
-
-                                        </div>
-
-                                        <div class="ball">
-                                            <strong>Оцените:</strong>
-                                            <p><link rel="stylesheet" type="text/css" href="/protected/extensions/DimmPoll/skin_16/poll.css"><script type="text/javascript">
-                                                $(document).ready(function () {
-                                                    $(".zvezda").click(function () {
-                                                        //alert($(this).attr("title"));
-                                                    });
-                                                    $(".zvezda").hover(
-                                                            function () {
-                                                                $(".small").css("background", "none");
-                                                                cur = $(this).attr("title");
-                                                                elem = 1;
-                                                                while (elem <= cur) {
-                                                                    $("div#val_7_film" + elem).css("background-image", "url('/protected/extensions/DimmPoll/skin_16/services11.png')");
-                                                                    elem++;
-                                                                }
-                                                            },
-                                                            function () {
-                                                                $(".zvezda").css("background-image", "");
-                                                            }
-                                                    );
-
-                                                });
-
-                                                </script>
-                                            </p><div id="mposter"></div>
-                                            <div id="estimate_580_film">
-                                                <div id="my" class="my_580_film">
-                                                    <noindex><a href="#" id="yt0"><div title="1" class="zvezda" id="val580_film1"><div class="small" id="small1" style="width: 100%;"></div></div></a></noindex><noindex><a href="#" id="yt1"><div title="2" class="zvezda" id="val580_film2"><div class="small" id="small2" style="width: 100%; background: none;"></div></div></a></noindex><noindex><a href="#" id="yt2"><div title="3" class="zvezda" id="val580_film3"><div class="small" id="small3" style="width: 100%; background: none;"></div></div></a></noindex><noindex><a href="#" id="yt3"><div title="4" class="zvezda" id="val580_film4"><div class="small" id="small4" style="width: 100%; background: none;"></div></div></a></noindex><noindex><a href="#" id="yt4"><div title="5" class="zvezda" id="val580_film5"><div class="small" id="small5" style="width: 100%; background: none;"></div></div></a></noindex><noindex><a href="#" id="yt5"><div title="6" class="zvezda" id="val580_film6"><div class="small" id="small6" style="width: 100%; background: none;"></div></div></a></noindex><noindex><a href="#" id="yt6"><div title="7" class="zvezda" id="val580_film7"><div class="small" id="small7" style="width: 100%; background: none;"></div></div></a></noindex><noindex><a href="#" id="yt7"><div title="8" class="zvezda" id="val580_film8"><div class="small" id="small8" style="width: 100%; background: none;"></div></div></a></noindex><noindex><a href="#" id="yt8"><div title="9" class="zvezda" id="val580_film9"><div class="small" id="small9" style="width: 0%; background: none;"></div></div></a></noindex><noindex><a href="#" id="yt9"><div title="10" class="zvezda" id="val580_film10"><div class="small" id="small10" style="background: none;"></div></div></a></noindex>    </div>
-                                                <div class="golos">
-                                                    8         <span>1 голос</span>
-                                                </div>
-                                            </div>
-                                            <p></p>
-                                        </div>
-
-                                        <div class="entry">
-                                            <a href="/film/snouden" class="alignleft">
-                                                <img src="http://kinoextra.com/imagecache/270x173/843831.jpg" alt="Сноуден (Snowden)"></a>
-                                            <div class="promo">
-                                                <div class="short">
-                                                    <div>Название: Сноуден (Snowden)</div>
-                                                    <div>Год: 2016</div>
-                                                    <div>Страна: Франция, Германия, США</div>
-                                                    <div>Режиссёр: Оливер Стоун</div>
-                                                </div>
-
-                                                <div class="mini" itemprop="about">Сноуден - триллер, драма, биография 2016 года. Художественный фильм, основанный на биографии бывшего спецагента ЦРУ и АНБ Эдварда Сноудена, который обнародовал миру секретные документы, касающиеся тотальной слежки американскими спецслужбами за гражданами США и многих других стран. </div>
-
-                                                <div class="foot">
-                                                    <div class="online">
-                                                        <a class="numbers" href="/film/snouden">cмотреть онлайн</a>
-                                                    </div>
-                                                    <div class="visited">
-                                                        <span class="numbers">237</span>
-                                                    </div>
-                                                    <div class="col_comment">
-                                                        <span class="numbers">0</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                            </ul>
-                            <nav>
-                                <ul class="pagination">
-                                    <li><a href="#"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
-                                </ul>
-                            </nav>
-                        </div>
+<?= $content ?>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-12">
                         <div class="right_sidebar">
@@ -250,7 +118,7 @@
                                 </ul>
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane fade active in" id="recentComment">
-                                        <ul class="ppost_nav wow fadeInDown">
+                                        <ul class="ppost_nav  fadeInDown">
                                             <li>
                                                 <div class="user">
                                                     <div>
@@ -283,7 +151,7 @@
                                         </ul>
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade" id="recentBall">
-                                        <ul class="ppost_nav wow fadeInDown">
+                                        <ul class="ppost_nav fadeInDown">
                                             <li>
                                                 <div class="user">
                                                     <div>
@@ -316,7 +184,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm3">
-                            <div class="footer_widget wow fadeInLeftBig">
+                            <div class="footer_widget  fadeInLeftBig">
                                 <h2>Labels</h2>
                                 <ul class="labels_nav">
                                     <li><a href="#">Games</a></li>
@@ -333,7 +201,7 @@
                         <div class="col-lg-3 col-md-3 col-sm3">
                             <div class="footer_widget">
                                 <h2>Popular Post</h2>
-                                <ul class="ppost_nav wow fadeInLeftBig">
+                                <ul class="ppost_nav  fadeInLeftBig">
                                     <li>
                                         <div class="media"><a href="pages/single_page.html" class="media-left"><img alt="" src="images/70x70.jpg"></a>
                                             <div class="media-body"><a href="pages/single_page.html" class="catg_title">Aliquam malesuada diam eget turpis varius</a></div>
@@ -353,12 +221,12 @@
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm3">
-                            <div class="footer_widget wow fadeInRightBig">
+                            <div class="footer_widget  fadeInRightBig">
                                 <h2>Flickr Images</h2>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm3">
-                            <div class="footer_widget wow fadeInRightBig">
+                            <div class="footer_widget  fadeInRightBig">
                                 <h2>Jetpack Subscription Widget</h2>
                                 <form action="#" class="subscribe_form">
                                     <p id="subscribe-text">We promise, we will only send you awesome stuff which will make your day!</p>
@@ -375,8 +243,7 @@
                 </div>
             </div>
         </footer>
-        <script src="/js/jquery.min.js"></script> 
-        <script src="/js/wow.min.js"></script> 
+        <script src="/js/jquery.min.js"></script>
         <script src="/js/bootstrap.min.js"></script> 
         <script src="/js/slick.min.js"></script> 
         <script src="/js/custom.js"></script>
