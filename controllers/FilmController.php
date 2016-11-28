@@ -127,6 +127,9 @@ class FilmController extends CController {
 
         $tags = Tag::find()->joinwith(['film'])->andWhere(['idFilm' => $film->id])->all();
 
+        CController::$metaTitle = $film->getTitle();
+        CController::$metaDescription = $film->getMetaDescription();
+            
         return $this->render('view', [
                     'model' => $film,
                     'tags' => $tags,

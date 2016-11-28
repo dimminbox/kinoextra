@@ -60,6 +60,12 @@ class FilmLanguage extends \yii\db\ActiveRecord {
         return $this->actor;
     }
 
+    public function getTitle() {
+        return $this->title;
+    }
+    public function getMetaDescription() {
+        return $this->meta_description;
+    }
     public function getCountry() {
         return $this->country;
     }

@@ -80,6 +80,14 @@ class Film extends \yii\db\ActiveRecord {
         return count($this->comment);
     }
 
+    public function getTitle() {
+        return $this->getLangPart()->getTitle();
+    }
+    
+    public function getMetaDescription() {
+        return $this->getLangPart()->getMetaDescription();
+    }
+    
     public function getCountryHuman() {
         return $this->getLangPart()->getCountry();
     }
