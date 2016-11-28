@@ -17,6 +17,13 @@ div.short span {
     text-align: center;
     margin: 10px 0px;
 }
+div.forumLinks {
+    font-size: 11px;
+}
+a.think {
+    font-weight: normal;
+    color: #005799; 
+}
 .navbar-header {height: 117px; padding-left: 220px;}
 .scrollToTop{background-color:#12a3df; color:#fff}
 .scrollToTop:hover, .scrollToTop:focus{background-color:#fff; color:#12a3df; border-color:1px solid #12a3df}

@@ -43,6 +43,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '/film/<url:\w+>'=>'film/view',
                 '/' => 'film/index',
                 '/page/<page:\d+>' => 'film/index',
                 '/<url:filmy\w+>/page/<page:\d+>' => 'film/index',
@@ -50,7 +51,10 @@ $config = [
                 
                 '/films/year/<year:\d+>' => 'film/index',
                 '/films/year/<year:\d+>/page/<page:\d+>' => 'film/index',
-                
+                '/films/tag/<tag:\w+>/page/<page:\d+>' => 'film/index',
+                '/films/tag/<tag:\w+>' => 'film/index',
+                '/films/<country:\w+>/page/<page:\d+>' => 'film/index',
+                '/films/<country:\w+>' => 'film/index',
                 '/<genre:films\w+>/page/<page:\d+>' => 'film/index',
                 '/<genre:films\w+>' => 'film/index',
             ],
@@ -64,6 +68,7 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
+        'allowedIPs' => ['*']
     ];
 
     $config['bootstrap'][] = 'gii';

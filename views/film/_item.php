@@ -44,13 +44,14 @@
 
         <div class="entry">
             <a href="<?=$model->getUrl()?>" class="alignleft">
-                <img src="<?=$model->getImage()?>" alt="<?=$model->getAlt()?>"></a>
+                <img src="<?=$model->getImage(175, 250)?>" alt="<?=$model->getAlt()?>"></a>
+            
             <div class="promo">
                 <div class="short">
                     <div>Название: <?=$model->getName();?></div>
                     <div itemprop="genre">Категории: <?=$model->getStyleHuman()?></div>
                     <div>Год: <?=$model->getYear();?></div>
-                    <div>Страна: <?=$model->getCountry();?></div>
+                    <div>Страна: <?=$model->getCountryHuman();?></div>
                     <div>Режиссёр: <?=$model->getDirector();?></div>
                 </div>
 

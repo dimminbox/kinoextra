@@ -23,19 +23,27 @@ class CustomUrlManager extends \yii\web\UrlManager {
     }
 
     public function createUrl($params) {
-
         if ($params[0] == 'film/index') {
-            
-            if (isset($params['url']))
+
+            if (isset($params['country']))
+                $url = '/films/' . $params['country'];
+            elseif (isset($params['year']))
+                $url = '/films/' . $params['year'];
+            elseif (isset($params['style']))
+                $url = $params['style'];
+            elseif (isset($params['genre']))
+                $url = $params['genre'];
+            elseif (isset($params['url']))
                 $url = $params['url'];
             else
                 $url = '';
+            
             if (isset($params['page']))
-                return $url."/page/".$params['page'];
+                return $url . "/page/" . $params['page'];
             else
                 return '/';
         }
-        
+
         return parent::createUrl($params);
     }
 

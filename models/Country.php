@@ -64,10 +64,18 @@ class Country extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * @inheritdoc
-     * @return CountryQuery the active query used by this AR class.
-     */
+     public function getName() {
+        return $this->name;
+    }
+
+    public function getTitle() {
+        return $this->title;
+    }
+
+    public function getMetaDescription() {
+        return $this->meta_description;
+    }
+    
     public static function find()
     {
         return new CountryQuery(get_called_class());

@@ -55,20 +55,31 @@ class FilmLanguage extends \yii\db\ActiveRecord {
     public function getDirector() {
         return $this->director;
     }
+
     public function getActor() {
         return $this->actor;
     }
+
     public function getCountry() {
         return $this->country;
     }
-    
+
     public function getShortDesc() {
         return $this->short;
     }
-    
+
+    public function getTrailer() {
+        return $this->trailer;
+    }
+
+    public function getVideo() {
+        return $this->video;
+    }
+
     public function getLongDesc() {
         return $this->description;
     }
+
     /**
      * @inheritdoc
      */

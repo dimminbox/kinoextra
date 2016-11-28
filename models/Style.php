@@ -18,46 +18,50 @@ use Yii;
  * @property integer $active
  * @property string $meta_keywords
  */
-class Style extends \yii\db\ActiveRecord
-{
+class Style extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'style';
+    }
+
+    public function getUrl() {
+        return "/".$this->url;
     }
 
     public function getName() {
         return $this->name;
     }
-     public function getTitle() {
+
+    public function getTitle() {
         return $this->title;
     }
+
     public function getMetaDescription() {
         return $this->meta_description;
     }
+
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            [['name', 'title', 'meta_description', 'parent', 'sort', 'url', 'active', 'main'], 'required'],
-            [['data_modified'], 'safe'],
-            [['parent', 'sort', 'active'], 'integer'],
-            [['meta_keywords'], 'string'],
-            [['name', 'url'], 'string', 'max' => 255],
-            [['title'], 'string', 'max' => 200],
-            [['meta_description'], 'string', 'max' => 215],
+                [['name', 'title', 'meta_description', 'parent', 'sort', 'url', 'active', 'main'], 'required'],
+                [['data_modified'], 'safe'],
+                [['parent', 'sort', 'active'], 'integer'],
+                [['meta_keywords'], 'string'],
+                [['name', 'url'], 'string', 'max' => 255],
+                [['title'], 'string', 'max' => 200],
+                [['meta_description'], 'string', 'max' => 215],
         ];
     }
 
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'ID',
             'name' => 'Name',
@@ -76,8 +80,8 @@ class Style extends \yii\db\ActiveRecord
      * @inheritdoc
      * @return StyleQuery the active query used by this AR class.
      */
-    public static function find()
-    {
+    public static function find() {
         return new StyleQuery(get_called_class());
     }
+
 }

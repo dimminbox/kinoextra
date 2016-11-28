@@ -110,7 +110,19 @@ div.zvezda {
     z-index: 1;
     font-family: Georgia,'Times New Roman',times,serif;
 }
-
+.filmDetail h2{
+    font-size: 19px;
+    background-color: #12a3df;
+    font-weight: bold;
+    margin: 0 0 0px -10px;
+    padding: 9px 10px;
+    text-align: left;
+    width: 103.4%;  
+    color: #fff;
+}
+.filmDetail .trailer, .filmDetail .video {
+    margin: 10px 0px;
+}
 .film h2{
     font-size: 14px;
     background-color: #12a3df;

@@ -2,13 +2,15 @@
 
 use app\widgets\MainStyle\MainStyle;
 use app\widgets\PopularFilms\PopularFilms;
+use app\widgets\LastComments\LastComments;
+use app\widgets\LastEstimations\LastEstimations;
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <title><?= \app\controllers\CController::$metaTitle ?></title>
         <meta name="description" content="<?= \app\controllers\CController::$metaDescription ?>"/>
-              <meta charset="utf-8">
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
@@ -83,10 +85,10 @@ use app\widgets\PopularFilms\PopularFilms;
                     <div class="col-lg-3 col-md-3 col-sm-4">
                         <div class="left_sidebar">
                             <div class="single_widget">
-<?= MainStyle::widget() ?>
+                                <?= MainStyle::widget() ?>
                             </div>
                             <div class="single_widget">
-<?= PopularFilms::widget() ?>
+                                <?= PopularFilms::widget() ?>
                             </div>
                             <div class="single_widget">
                                 <h2>Интересные вещи</h2>
@@ -94,7 +96,7 @@ use app\widgets\PopularFilms\PopularFilms;
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-8">
-<?= $content ?>
+                        <?= $content ?>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-12">
                         <div class="right_sidebar">
@@ -117,58 +119,9 @@ use app\widgets\PopularFilms\PopularFilms;
                                     <li role="presentation" class=""><a href="#recentBall" aria-controls="messages" role="tab" data-toggle="tab" aria-expanded="false">Оценки</a></li>
                                 </ul>
                                 <div class="tab-content">
-                                    <div role="tabpanel" class="tab-pane fade active in" id="recentComment">
-                                        <ul class="ppost_nav  fadeInDown">
-                                            <li>
-                                                <div class="user">
-                                                    <div>
-                                                        <span class="userName">Автор Берсо: </span>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <p id="citata">"Капец фигня"</p>
 
-                                                    <div class="forumLinks">
-                                                        <p class="filmName">Фильм: "<a href="/film/sluga_naroda">Слуга народа</a>"</p>
-                                                        <a href="/film/sluga_naroda#comment1256">Читать</a> | <a href="/film/sluga_naroda?reply&amp;commentId=1256#comments">Ответить</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="user">
-                                                    <div>
-                                                        <span class="userName">Автор Берсо: </span>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <p id="citata">"Капец фигня"</p>
-
-                                                    <div class="forumLinks">
-                                                        <p class="filmName">Фильм: "<a href="/film/sluga_naroda">Слуга народа</a>"</p>
-                                                        <a href="/film/sluga_naroda#comment1256">Читать</a> | <a href="/film/sluga_naroda?reply&amp;commentId=1256#comments">Ответить</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="recentBall">
-                                        <ul class="ppost_nav fadeInDown">
-                                            <li>
-                                                <div class="user">
-                                                    <div>
-                                                        <span class="userName">Автор Берсо: </span>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <p id="citata">"Капец фигня"</p>
-
-                                                    <div class="forumLinks">
-                                                        <p class="filmName">Фильм: "<a href="/film/sluga_naroda">Слуга народа</a>"</p>
-                                                        <a href="/film/sluga_naroda#comment1256">Читать</a> | <a href="/film/sluga_naroda?reply&amp;commentId=1256#comments">Ответить</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                        </ul>
-                                    </div>
+                                    <?= LastComments::widget() ?>
+                                    <?= LastEstimations::widget() ?>
                                 </div>
                             </div>
 
@@ -185,58 +138,28 @@ use app\widgets\PopularFilms\PopularFilms;
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm3">
                             <div class="footer_widget  fadeInLeftBig">
-                                <h2>Labels</h2>
+                                <h2>Обратная связь</h2>
                                 <ul class="labels_nav">
-                                    <li><a href="#">Games</a></li>
-                                    <li><a href="#">Gallery</a></li>
-                                    <li><a href="#">Technology</a></li>
-                                    <li><a href="#">Business</a></li>
-                                    <li><a href="#">Slider</a></li>
-                                    <li><a href="#">Life &amp; Style</a></li>
-                                    <li><a href="#">Ver</a></li>
-                                    <li><a href="#">Sports</a></li>
+                                    <li><a rel="nofollow" href="/authors">Правообладателям</a></li>
+                                    <li><a rel="nofollow" href="/advertiser">Рекламодателям</a></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm3">
-                            <div class="footer_widget">
-                                <h2>Popular Post</h2>
-                                <ul class="ppost_nav  fadeInLeftBig">
-                                    <li>
-                                        <div class="media"><a href="pages/single_page.html" class="media-left"><img alt="" src="images/70x70.jpg"></a>
-                                            <div class="media-body"><a href="pages/single_page.html" class="catg_title">Aliquam malesuada diam eget turpis varius</a></div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="media"><a href="pages/single_page.html" class="media-left"><img alt="" src="images/70x70.jpg"></a>
-                                            <div class="media-body"><a href="#" class="catg_title">Aliquam malesuada diam eget turpis varius</a></div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="media"><a href="pages/single_page.html" class="media-left"><img alt="" src="images/70x70.jpg"></a>
-                                            <div class="media-body"><a href="#" class="catg_title">Aliquam malesuada diam eget turpis varius</a></div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+
                         <div class="col-lg-3 col-md-3 col-sm3">
                             <div class="footer_widget  fadeInRightBig">
-                                <h2>Flickr Images</h2>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm3">
-                            <div class="footer_widget  fadeInRightBig">
-                                <h2>Jetpack Subscription Widget</h2>
-                                <form action="#" class="subscribe_form">
-                                    <p id="subscribe-text">We promise, we will only send you awesome stuff which will make your day!</p>
-                                    <p id="subscribe-email">
-                                        <input type="text" placeholder="Email Address" name="email">
-                                    </p>
-                                    <p id="subscribe-submit">
-                                        <input type="submit" value="Submit">
-                                    </p>
-                                </form>
+                                <h2>Статистика</h2>
+                                <!--LiveInternet counter--><script type="text/javascript"><!--
+                                               document.write("<a href='http://www.liveinternet.ru/click' " +
+                                            "target=_blank><img src='//counter.yadro.ru/hit?t22.6;r" +
+                                            escape(document.referrer) + ((typeof (screen) == "undefined") ? "" :
+                                            ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+                                                    screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+                                            ";" + Math.random() +
+                                            "' alt='' title='LiveInternet: показано число просмотров за 24" +
+                                            " часа, посетителей за 24 часа и за сегодня' " +
+                                            "border='0' width='88' height='31'><\/a>")
+                                    //--></script><!--/LiveInternet-->
                             </div>
                         </div>
                     </div>
