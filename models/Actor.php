@@ -55,14 +55,14 @@ class Actor extends \yii\db\ActiveRecord {
     public function getFilm() {
         return $this->hasMany(Film::className(), ['id' => 'id_film'])->viaTable('filmtoactor', ['id_actor' => 'id']);
     }
-    
+
     public function getImage($width, $height) {
-        
+
         $pathResized = '/imageCache/';
-        $file = Yii::getAlias('@webroot').'/images/actors/' . $this->image;
-        $fileCache = Yii::getAlias('@webroot').$pathResized . $this->image;        
+        $file = Yii::getAlias('@webroot') . '/images/actors/' . $this->image;
+        $fileCache = Yii::getAlias('@webroot') . $pathResized . $this->image;
         $_name = "{$pathResized}{$width}_{$height}_{$this->image}";
-        
+
         if (file_exists($_name)) {
             return $_name;
         } else {
@@ -70,15 +70,25 @@ class Actor extends \yii\db\ActiveRecord {
             return $_name;
         }
     }
-    
+
     public function getName() {
         return $this->name;
     }
-    
+
     public function getDescription() {
         return $this->description;
     }
-    
+
+    public function getFilmCount() {
+        if (isset($this->film))
+            return count($this->film);
+        else
+            return 0;
+    }
+
+    public function getUrl() {
+        return '/film/'.$this->url;
+    }
     public static function find() {
         return new ActorQuery(get_called_class());
     }

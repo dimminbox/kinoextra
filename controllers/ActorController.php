@@ -12,6 +12,24 @@ use yii\filters\VerbFilter;
 
 class ActorController extends CController {
 
+    public function actionIndex($page=0) {
+
+        $actors = Actor::find()->with(['film'])->orderBy('name DESC');
+        $pages = new \yii\data\Pagination(['totalCount' => $actors->count(), 'pageSize' => 15, 'defaultPageSize' => 15]);
+        $pages->pageSizeParam = false;
+        $pages->forcePageParam = false;
+        $pages->urlManager = new \app\components\CustomUrlManager;
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $actors,
+            'pagination' => $pages
+        ]);
+
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
     public function actionView($url) {
 
         $actor = Actor::find()->with(['film'])->andWhere(['url' => $url])->one();
@@ -39,10 +57,10 @@ class ActorController extends CController {
 
         CController::$metaTitle = (isset(Yii::$app->params['_seo_actor_page_title'])) ? Yii::$app->params['_seo_actor_page_title'] : '';
         CController::$metaTitle = $actor->getName() . CController::$metaTitle;
-        
+
         CController::$metaDescription = (isset(Yii::$app->params['_seo_actor_page_description'])) ? Yii::$app->params['_seo_actor_page_description'] : '';
         CController::$metaDescription = $actor->getDescription() . CController::$metaDescription;
-        
+
         return $this->render('view', [
                     'actor' => $actor,
                     'films' => $_films,

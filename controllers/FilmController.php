@@ -124,7 +124,7 @@ class FilmController extends CController {
                 ->one();
         if (empty($film))
             throw new \yii\web\NotFoundHttpException("Фильм не доступен. Возможно он удалён по просьбе правообладателей.");
-        
+
         if (!empty($film->genre))
             $genres = $film->genre;
 
