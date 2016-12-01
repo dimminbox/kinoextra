@@ -75,6 +75,19 @@ class Film extends \yii\db\ActiveRecord {
         }
         return implode(', ', $result);
     }
+    
+    public function getGenreHuman() {
+
+        $result = '';
+        if (empty($this->genre))
+            return '';
+
+        foreach ($this->genre as $genre) {
+            $result[] = $genre->getName();
+        }
+        return implode(', ', $result);
+    }
+    
 
     public function getCountComments() {
         return count($this->comment);

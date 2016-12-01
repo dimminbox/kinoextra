@@ -3,6 +3,9 @@ div.longText {padding: 10px 0px;}
 div.short span {
     font-weight: normal;
 }
+.fadeInDown {
+    list-style-type: none;
+}
 .floatright {
     font-size: 12px;
     text-align: right;

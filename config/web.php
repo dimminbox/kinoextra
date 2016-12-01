@@ -43,6 +43,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '/actor/<url:\w+>' => 'actor/view',
                 '/film/<url:\w+>'=>'film/view',
                 '/' => 'film/index',
                 '/page/<page:\d+>' => 'film/index',

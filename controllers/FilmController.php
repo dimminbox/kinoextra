@@ -122,14 +122,17 @@ class FilmController extends CController {
         $film = Film::find()->joinWith(['style', 'genre', 'lang'])->
                 andWhere(['film.url' => $url, 'film.active' => 1, 'style.active' => 1])
                 ->one();
+        if (empty($film))
+            throw new \yii\web\NotFoundHttpException("Фильм не доступен. Возможно он удалён по просьбе правообладателей.");
+        
         if (!empty($film->genre))
-                $genres = $film->genre;
+            $genres = $film->genre;
 
         $tags = Tag::find()->joinwith(['film'])->andWhere(['idFilm' => $film->id])->all();
 
         CController::$metaTitle = $film->getTitle();
         CController::$metaDescription = $film->getMetaDescription();
-            
+
         return $this->render('view', [
                     'model' => $film,
                     'tags' => $tags,

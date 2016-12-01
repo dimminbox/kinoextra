@@ -38,14 +38,15 @@ class Tag extends \yii\db\ActiveRecord {
     public function getName() {
         return $this->name;
     }
-    
-        public function getUrl() {
-        return '/films/tag/'.$this->url;
+
+    public function getUrl() {
+        return '/films/tag/' . $this->url;
     }
-    
+
     public function getFilm() {
         return $this->hasOne(TagFilm::className(), ['idTag' => 'id']);
     }
+
     /**
      * @inheritdoc
      */
