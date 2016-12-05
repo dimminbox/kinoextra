@@ -71,12 +71,22 @@ use app\widgets\LastEstimations\LastEstimations;
                             </ul>
                         </div>
                         <div class="search"><a class="search_icon" href="#"><i class="fa fa-search"></i></a>
-                            <form action="#">
-                                <input class="search_bar" type="text" placeholder="Search here">
-                            </form>
+                            <script>
+                                (function () {
+                                    var cx = '016002963691455401839:ctj02af2liw';
+                                    var gcse = document.createElement('script');
+                                    gcse.type = 'text/javascript';
+                                    gcse.async = true;
+                                    gcse.src = (document.location.protocol == 'https' ? 'https:' : 'http:') +
+                                            '//www.google.com/cse/cse.js?cx=' + cx;
+                                    var s = document.getElementsByTagName('script')[0];
+                                    s.parentNode.insertBefore(gcse, s);
+                                })();
+                            </script>
                         </div>
                     </div>
             </nav>
+             <p id="searchBox" class="search_bar"><gcse:search></gcse:search></p>
         </header>
         <section id="content">
 

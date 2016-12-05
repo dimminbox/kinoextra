@@ -12,9 +12,17 @@ use yii\filters\VerbFilter;
 
 class ActorController extends CController {
 
-    public function actionIndex($page=0) {
+    public function actionIndex($page = 0) {
 
-        $actors = Actor::find()->with(['film'])->orderBy('name DESC');
+
+        CController::$metaTitle = (isset(Yii::$app->params['_seo_actor_title'])) ? Yii::$app->params['_seo_actor_title'] : '';
+        CController::$metaDescription = (isset(Yii::$app->params['_seo_actor_description'])) ? Yii::$app->params['_seo_actor_description'] : '';
+        CController::$h1 = CController::$metaTitle;
+        if ($page != 0) {
+            CController::$metaTitle .= " страница $page";
+            CController::$metaDescription .= " страница $page";
+        }
+        $actors = Actor::find()->with(['film'])->andWhere('actor.image!=""')->orderBy('name ASC');
         $pages = new \yii\data\Pagination(['totalCount' => $actors->count(), 'pageSize' => 15, 'defaultPageSize' => 15]);
         $pages->pageSizeParam = false;
         $pages->forcePageParam = false;
@@ -26,7 +34,7 @@ class ActorController extends CController {
         ]);
 
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+                    'dataProvider' => $dataProvider,
         ]);
     }
 

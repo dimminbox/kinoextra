@@ -19,36 +19,37 @@ use Yii;
  * @property string $date_modified
  * @property integer $active
  */
-class Country extends \yii\db\ActiveRecord
-{
+class Country extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'country';
+    }
+
+    public function getUrl() {
+        return '/films/' . $this->url;
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            [['description', 'name'], 'string'],
-            [['name', 'url', 'title', 'meta_description', 'active'], 'required'],
-            [['date_added', 'date_modified'], 'safe'],
-            [['active'], 'integer'],
-            [['image', 'url', 'meta_description', 'meta_keywords'], 'string', 'max' => 512],
-            [['title'], 'string', 'max' => 200],
+                [['description', 'name'], 'string'],
+                [['name', 'url', 'title', 'meta_description', 'active'], 'required'],
+                [['date_added', 'date_modified'], 'safe'],
+                [['active'], 'integer'],
+                [['image', 'url', 'meta_description', 'meta_keywords'], 'string', 'max' => 512],
+                [['title'], 'string', 'max' => 200],
         ];
     }
 
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'ID',
             'image' => 'Image',
@@ -64,7 +65,7 @@ class Country extends \yii\db\ActiveRecord
         ];
     }
 
-     public function getName() {
+    public function getName() {
         return $this->name;
     }
 
@@ -75,9 +76,9 @@ class Country extends \yii\db\ActiveRecord
     public function getMetaDescription() {
         return $this->meta_description;
     }
-    
-    public static function find()
-    {
+
+    public static function find() {
         return new CountryQuery(get_called_class());
     }
+
 }

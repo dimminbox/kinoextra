@@ -17,6 +17,10 @@ body{background-color:#fff; color:#333; overflow-x:hidden !important}
 div.promo div.mini {
     margin: 10px 10px 0px 0px;
 }
+.filmname a span {
+    color: #E9FF29;
+    font-size: 22px;
+}
 .promo {
     font-size: 12px;
     margin-left: 10px;
@@ -34,7 +38,7 @@ div.promo div.mini {
     max-height: 380px;
 }
 .entry img {
-    height: 250px;
+    max-height: 250px;
     max-width: 175px;
 }
 
@@ -120,6 +124,10 @@ div.zvezda {
     width: 103.4%;  
     color: #fff;
 }
+.gsc-search-button {
+    display: none;
+}
+
 .filmDetail .trailer, .filmDetail .video {
     margin: 10px 0px;
 }
@@ -197,7 +205,8 @@ img:hover{opacity:0.75}
 .navbar-collapse{float:left; position:relative; width:100%}
 .search{float:right; position:relative}
 .search_icon i{background:none repeat scroll 0 0 #fff; display:block; float:right; height:30px; line-height:30px; margin-top:10px; text-align:center; width:30px}
-.search_bar{display:inline; height:45px; padding:10px; position:absolute; right:0; top:52px; width:250px; display:none}
+.search_bar{    z-index: 9999; display:inline; height:33px; padding:10px; position:absolute; right:250px; top:52px; width:300px; display:none}
+
 .navbar-default .navbar-toggle{border-color:#fff}
 .navbar-default .navbar-toggle .icon-bar{background-color:#fff}
 #content{display:inline; float:left; margin-top:140px; width:100%; margin-bottom:30px}

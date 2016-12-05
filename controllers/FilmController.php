@@ -29,6 +29,27 @@ class FilmController extends CController {
         ];
     }
 
+    public function actionBest() {
+        CController::$metaTitle = (isset(Yii::$app->params['_seo_best_title'])) ? Yii::$app->params['_seo_best_title'] : '';
+        CController::$metaDescription = (isset(Yii::$app->params['_seo_best_description'])) ? Yii::$app->params['_seo_best_description'] : '';
+        CController::$h1 = CController::$metaTitle;
+        CController::$description = CController::$metaDescription;
+
+        $films = \app\models\BestFilms::find()->joinWith(['style', 'lang', 'comment'])
+                        ->orderBy('rating DESC')->groupBy('best_films.id')->limit(50)->distinct();
+        
+        $dataProvider = new ActiveDataProvider([
+            'query' => $films,
+            'pagination' => false
+        ]);
+        
+        return $this->render('index', [
+                    'dataProvider' => $dataProvider,
+                    'best'=>true
+        ]);
+        
+    }
+    
     public function actionIndex($url = '', $page = 0, $genre = '', $year = 0, $country = '', $tag = '') {
 
 
@@ -108,14 +129,38 @@ class FilmController extends CController {
 
         return $this->render('index', [
                     'dataProvider' => $dataProvider,
+                    'best' => false
         ]);
     }
 
-    /**
-     * Displays a single Film model.
-     * @param integer $id
-     * @return mixed
-     */
+
+    public function actionCountries() {
+
+        CController::$metaTitle = (isset(Yii::$app->params['_seo_country_title'])) ? Yii::$app->params['_seo_country_title'] : '';
+        CController::$metaDescription = (isset(Yii::$app->params['_seo_country_description'])) ? Yii::$app->params['_seo_country_description'] : '';
+        CController::$h1 = 'Фильмы по странам';
+
+        $abc = array();
+        $alphafit = array();
+        foreach (range(chr(0xC0), chr(0xDF)) as $b)
+            $abc[] = iconv('CP1251', 'UTF-8', $b);
+
+        $_countries = \app\models\Country::find()->orderBy('country.name ASC')->andWhere(['country.active' => 1])->all();
+
+        foreach ($_countries as $country) {
+            $first = str_split($country->getName(), 2);
+            $_country = array('name' => $country->getName(), 'url' => $country->getUrl());
+            $alphafit[$first[0]][] = $_country;
+        }
+
+        ksort($alphafit);
+
+
+        return $this->render('countries', [
+                    'alphavit' => $alphafit,
+        ]);
+    }
+
     public function actionView($url) {
         $tags = [];
         $genres = [];

@@ -43,6 +43,15 @@ class CustomUrlManager extends \yii\web\UrlManager {
             else
                 return '/';
         }
+        elseif ($params[0] == 'actor/index') {
+            
+            if (isset($params['page']))
+                return  "/actors/page/" . $params['page'];
+            else
+                return '/actors';
+            
+        }
+        print_r($params);die;
 
         return parent::createUrl($params);
     }

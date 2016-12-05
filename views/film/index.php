@@ -7,7 +7,7 @@
         <?php
         echo \yii\widgets\ListView::widget([
             'dataProvider' => $dataProvider,
-            'itemView' => '_item',
+            'itemView' => ($best) ? '_best_item' : '_item',
             'summary' => '',
             'options' => ['id' => 'productlist'],
             'pager' => [

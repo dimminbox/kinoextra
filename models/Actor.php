@@ -60,6 +60,9 @@ class Actor extends \yii\db\ActiveRecord {
 
         $pathResized = '/imageCache/';
         $file = Yii::getAlias('@webroot') . '/images/actors/' . $this->image;
+        if ( (!file_exists($file)) || (filesize($file)==0) )
+            return '';
+        
         $fileCache = Yii::getAlias('@webroot') . $pathResized . $this->image;
         $_name = "{$pathResized}{$width}_{$height}_{$this->image}";
 
@@ -87,7 +90,7 @@ class Actor extends \yii\db\ActiveRecord {
     }
 
     public function getUrl() {
-        return '/film/'.$this->url;
+        return '/actor/'.$this->url;
     }
     public static function find() {
         return new ActorQuery(get_called_class());

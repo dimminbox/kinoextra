@@ -1,3 +1,6 @@
+<?php $image = $model->getImage(175, 250)?>
+
+<?php if( ($image!="")): ?>
 <li class="fadeInDown">
 
     <div class="film" itemscope="" itemscope itemtype="http://schema.org/Person">			
@@ -8,7 +11,7 @@
 
         <div class="entry">
             <a href="<?= $model->getUrl() ?>" class="alignleft">
-                <img src="/images/actors/<?= $model->image ?>" /></a>
+                <img src="<?= $model->getImage(175, 250) ?>" /></a>
 
             <div class="promo">
                 <div class="short">
@@ -28,3 +31,4 @@
     </div>
 
 </li>
+<?php endif; ?>
