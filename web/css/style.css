@@ -114,7 +114,19 @@ div.zvezda {
     z-index: 1;
     font-family: Georgia,'Times New Roman',times,serif;
 }
-.filmDetail h2{
+.helpers {
+    font-size: 12px;
+    text-align: right;
+    padding-top: 3px;
+}
+.helpers a {
+    color: black;
+    font-weight: normal;
+}
+#comments h2 {
+    font-size: 20px;
+}
+.filmDetail h1 {
     font-size: 19px;
     background-color: #12a3df;
     font-weight: bold;
