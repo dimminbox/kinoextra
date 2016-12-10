@@ -11,8 +11,8 @@
 
                 <div class="forumLinks">
                     <p class="filmName">Фильм: "<a href="<?=$comment->film->getUrl()?>"><?=$comment->film->getName()?></a>"</p>
-                    <a href="<?=$comment->film->getUrl()?>#<?=$comment->id?>">Читать</a> | 
-                    <a href="<?=$comment->film->getUrl()?>?reply&amp;commentId=<?=$comment->id?>#comments">Ответить</a>
+                    <a href="<?=$comment->film->getUrl()?>#comment<?=$comment->id?>">Читать</a> | 
+                    <a href="<?=$comment->film->getUrl()?>?reply&commentId=<?=$comment->id?>#comments">Ответить</a>
                 </div>
             </div>
         </li>

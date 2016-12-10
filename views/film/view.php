@@ -79,5 +79,6 @@
             <?= $model->getVideo() ?>
         <?php endif; ?>
     </div>
+    <?=   \spanjeta\comments\CommentsWidget::widget(['model'=>$model]); ?>
 
 </li>

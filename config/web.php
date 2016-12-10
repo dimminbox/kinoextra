@@ -38,6 +38,12 @@ $config = [
                 ],
             ],
         ],
+        'reCaptcha' => [
+            'name' => 'reCaptcha',
+            'class' => 'himiklab\yii2\recaptcha\ReCaptcha',
+            'siteKey' => '6Ld1ZQ4UAAAAADV22TT3ZvqTNmWEhngZ1VpnKBYl',
+            'secret' => '6Ld1ZQ4UAAAAABODriGGAkl7YC5KCQMbZtHldEx6',
+        ],
         'db' => require(__DIR__ . '/db.php'),
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -48,12 +54,11 @@ $config = [
                 '/actors' => '/actor/index',
                 'actors/page/<page:\d+>' => 'actor/index',
                 '/actor/<url:\w+>' => 'actor/view',
-                '/film/<url:\w+>'=>'film/view',
+                '/film/<url:\w+>' => 'film/view',
                 '/' => 'film/index',
                 '/page/<page:\d+>' => 'film/index',
                 '/<url:filmy\w+>/page/<page:\d+>' => 'film/index',
                 '/<url:filmy\w+>' => 'film/index',
-                
                 '/films/year/<year:\d+>' => 'film/index',
                 '/films/year/<year:\d+>/page/<page:\d+>' => 'film/index',
                 '/films/tag/<tag:\w+>/page/<page:\d+>' => 'film/index',

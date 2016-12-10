@@ -40,6 +40,8 @@ class Comment extends \yii\db\ActiveRecord {
     public function getAuthor() {
         return $this->user;
     }
+    
+  
     public function getText() {
         return $this->content;
     }
