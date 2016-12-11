@@ -18,6 +18,7 @@ use app\widgets\LastEstimations\LastEstimations;
         <link rel="stylesheet" type="text/css" href="/css/animate.css">
         <link rel="stylesheet" type="text/css" href="/css/slick.css">
         <link rel="stylesheet" type="text/css" href="/css/theme.css">
+        <link rel="stylesheet" type="text/css" href="/css/poll.css">
         <link rel="stylesheet" type="text/css" href="/css/style.css">
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <meta name="revisit-after" content="1 days" />

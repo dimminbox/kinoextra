@@ -49,6 +49,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '/poll' => '/poll/add',
                 '/film/best' => '/film/best',
                 '/film/countries' => '/film/countries',
                 '/actors' => '/actor/index',

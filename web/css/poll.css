@@ -1,0 +1,36 @@
+div#my {
+    width: auto; 
+    overflow: auto;
+    float:left;
+}
+div.zvezda {
+       background: url('services.png');
+       width: 16px;
+       height: 16px;
+       float:left;
+       margin: 3px;
+       z-index: 1;
+    font-family: Georgia,'Times New Roman',times,serif;
+}
+div.small{
+     height: 16px;
+     background: url('services11.png');
+     height: 16px;
+     float:left;
+     margin:0 !important;
+     padding:0 !important;
+     z-index: 2;
+}
+div.golos{
+    float:left;
+    margin-left: 10px; 
+    font-family:helvetica;
+    font-size:18px;
+    color:#D02802;
+    border-bottom: 1px solid red;
+}
+div.golos span{
+    font-size:12px;
+    font-family:helvetica;
+    padding-left:0px;
+}
