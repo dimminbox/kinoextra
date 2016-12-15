@@ -10,7 +10,7 @@ class Poll extends Widget {
 
     public $number = 10;
     public $model;
-
+    public $stars = true;
     public function run() {
         parent::run();
 
@@ -46,8 +46,14 @@ class Poll extends Widget {
             default:
                 $count = 0;
         }
-
+        if ($this->stars)
         return $this->render('view', array(
+            'model_id' => $this->model,
+            'count' => $count,
+            'estimate' => round(($count != 0) ? $totalEstimate / $count : 0, 3),
+            'number' => $this->number));
+        else
+            return $this->render('result', array(
             'model_id' => $this->model,
             'count' => $count,
             'estimate' => round(($count != 0) ? $totalEstimate / $count : 0, 3),

@@ -113,6 +113,7 @@ div.zvezda {
     margin: 3px;
     z-index: 1;
     font-family: Georgia,'Times New Roman',times,serif;
+    cursor: pointer;
 }
 .helpers {
     font-size: 12px;

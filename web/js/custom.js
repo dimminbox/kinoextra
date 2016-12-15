@@ -81,7 +81,8 @@ function sendPoll(filmId, value) {
             estimate: value
         },
         success: function (data) {
-            alert(123);
+           $("#estimate_"+filmId).html(data);
+           
         }
     });
 }

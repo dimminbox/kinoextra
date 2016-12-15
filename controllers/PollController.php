@@ -38,12 +38,12 @@ class PollController extends CController {
                         'domain' => $_SERVER['HTTP_HOST'],
                         'expire' => time() + 86400,
                     ]));
-                    //echo $this->ShowResults($filmId);
+                    return $this->renderPartial('view',['filmId'=>$filmId, 'stars'=>false]);
                 } else {
-                    //$this->ShowResults($filmId);
+                    return $this->renderPartial('view',['filmId'=>$filmId]);
                 }
             } else
-                echo 'Вы уже проголосовали.';
+                echo 'Вы уже оценили этот фильм.';
         } else
             throw new CException(Yii::t('DimmPoll', 'Estimation is null'));
     }
