@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /authors
 Disallow: /dimmpoll
-Disallow: ?reply
+Disallow: *reply
 Host: kinoextra.com
 Sitemap: http://kinoextra.com/Sitemapxml
 

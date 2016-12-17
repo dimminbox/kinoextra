@@ -29,7 +29,6 @@ class PollController extends CController {
                 $model->model_id = $filmId;
                 $model->key = md5(uniqid(rand(), 1));
                 $model->ip = Yii::$app->request->userIP;
-
                 if ($model->save()) {
 
                     Yii::$app->response->cookies->add(new Cookie([

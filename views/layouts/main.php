@@ -21,6 +21,7 @@ use app\widgets\LastEstimations\LastEstimations;
         <link rel="stylesheet" type="text/css" href="/css/poll.css">
         <link rel="stylesheet" type="text/css" href="/css/style.css">
         <script src='https://www.google.com/recaptcha/api.js'></script>
+        <meta name="google-site-verification" content="uq96ABvgY1Z93C6JMuRA42DiUu9d5xJY5ncAMi2Oo-I" />
         <meta name="revisit-after" content="1 days" />
         <!--[if lt IE 9]>
         <script src="assets/js/html5shiv.min.js"></script>

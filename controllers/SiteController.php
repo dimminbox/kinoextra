@@ -59,11 +59,17 @@ class SiteController extends CController
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionAuthor()
     {
-        return $this->render('index');
+        return $this->render('author');
     }
 
+    public function actionAdvertiser()
+    {
+        return $this->render('advertiser');
+    }
+
+    
     /**
      * Login action.
      *
