@@ -44,32 +44,51 @@ use app\widgets\LastEstimations\LastEstimations;
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav custom_nav">
-                                <li><a href="#">Лучшие фильмы</a></li>
+                                <li><a href="/film/best">Лучшие фильмы</a></li>
                                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">По категориям</a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">На реальных событиях</a></li>
-                                        <li><a href="#">О животных</a></li>
-                                        <li><a href="#">Социальные</a></li>
+                                        <li><a href="/filmy_na_realnyh_sobytijah">На реальных событиях</a></li>
+                                        <li><a href="/filmy_pro_more">Про море</a></li>
+                                        <li><a href="/filmy_pro_zhivotnyh">Про животных</a></li>
+                                        <li><a href="/filmy_muzhskie">Мужские</a></li>
+                                        <li><a href="/filmy_socialnye">Социальные</a></li>
+                                        <li><a href="/filmy_pro_puteshestvija">Про путешествия</a></li>
+                                        <li><a href="/interesnye_serialy">Сериалы</a></li>
+                                        <li><a href="/filmy_pro_novij_god">Новогодние</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">По жанрам</a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Биография</a></li>
-                                        <li><a href="#">Боевики</a></li>
-                                        <li><a href="#">Военные</a></li>
+                                        <li><a href="/films_biografija">Биография</a></li>
+                                        <li><a href="/films_boeviki">Боевики</a></li>
+                                        <li><a href="/films_detektiv">Детектив</a></li>
+                                        <li><a href="/films_detskie">Детские</a></li>
+                                        <li><a href="/films_dokumentalnyje">Документальные</a></li>
+                                        <li><a href="/films_dramy">Драмы</a></li>
+                                        <li><a href="/films_istoricheskiy">История</a></li>
+                                        <li><a href="/films_komedii">Комедии</a></li>
+                                        <li><a href="/films_kriminal">Криминал</a></li>
+                                        <li><a href="/films_melodramy">Мелодрамы</a></li>
+                                        <li><a href="/films_prikluchenie">Приключения</a></li>
+                                        <li><a href="/films_semeynoe">Семейные</a></li>
+                                        <li><a href="/films_serialy">Сериалы</a></li>
+                                        <li><a href="/films_trillery">Триллеры</a></li>
+                                        <li><a href="/films_uzhasy">Ужасы</a></li>
+                                        <li><a href="/films_fantastika">Фантастика</a></li>
+
                                     </ul>
                                 </li>
+                                <?php $years = [date('Y'), date('Y') - 1, date('Y') - 2, date('Y') - 3, date('Y') - 4, date('Y') - 5]; ?>
                                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">По годам</a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">2016</a></li>
-                                        <li><a href="#">2015</a></li>
-                                        <li><a href="#">2014</a></li>
-                                        <li><a href="#">2013</a></li>
+                                        <?php foreach ($years as $year) : ?>
+                                            <li><a href="/films/year/<?= $year ?>"><?= $year ?></a></li>
+                                        <?php endforeach; ?>
                                     </ul>
                                 </li>
-                                <li><a href="pages/contact.html">По актёрам</a></li>
-                                <li><a href="pages/404.html">По странам</a></li>
-                                <li><a href="pages/404.html">По интересам</a></li>
+                                <li><a href="/actors">По актёрам</a></li>
+                                <li><a href="/film/countries">По странам</a></li>
+                                <li><a href="/film/interesy">По интересам</a></li>
                             </ul>
                         </div>
                         <div class="search"><a class="search_icon" href="#"><i class="fa fa-search"></i></a>
@@ -88,99 +107,99 @@ use app\widgets\LastEstimations\LastEstimations;
                         </div>
                     </div>
             </nav>
-             <p id="searchBox" class="search_bar"><gcse:search></gcse:search></p>
-        </header>
-        <section id="content">
+            <p id="searchBox" class="search_bar"><gcse:search></gcse:search></p>
+    </header>
+    <section id="content">
 
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-4">
+                    <div class="left_sidebar">
+                        <div class="single_widget">
+                            <?= MainStyle::widget() ?>
+                        </div>
+                        <div class="single_widget">
+                            <?= PopularFilms::widget() ?>
+                        </div>
+                        <div class="single_widget">
+                            <h2>Интересные вещи</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-8">
+                    <?= $content ?>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12">
+                    <div class="right_sidebar">
+
+                        <div class="single_widget">
+                            <h2>Мы Вконтакте</h2>
+                            <div class="sidebar sidebar-left">
+                                <!-- VK Widget -->
+                                <div id="vk_groups"></div>
+                                <script type="text/javascript">
+                                    VK.Widgets.Group("vk_groups", {mode: 0, width: "223", height: "290"}, 43651229);
+                                </script>
+                            </div>
+                        </div>
+
+
+                        <div class="single_widget">
+                            <ul class="nav nav-tabs custom-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#recentComment" aria-controls="home" role="tab" data-toggle="tab" aria-expanded="true">Комментрии</a></li>
+                                <li role="presentation" class=""><a href="#recentBall" aria-controls="messages" role="tab" data-toggle="tab" aria-expanded="false">Оценки</a></li>
+                            </ul>
+                            <div class="tab-content">
+
+                                <?= LastComments::widget() ?>
+                                <?= LastEstimations::widget() ?>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="footer">
+        <div class="footer_top">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-4">
-                        <div class="left_sidebar">
-                            <div class="single_widget">
-                                <?= MainStyle::widget() ?>
-                            </div>
-                            <div class="single_widget">
-                                <?= PopularFilms::widget() ?>
-                            </div>
-                            <div class="single_widget">
-                                <h2>Интересные вещи</h2>
-                            </div>
+                    <div class="col-lg-3 col-md-3 col-sm3">
+                        <div class="footer_widget  fadeInLeftBig">
+                            <h2>Обратная связь</h2>
+                            <ul class="labels_nav">
+                                <li><a rel="nofollow" href="/authors">Правообладателям</a></li>
+                                <li><a rel="nofollow" href="/advertiser">Рекламодателям</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-8">
-                        <?= $content ?>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-12">
-                        <div class="right_sidebar">
 
-                            <div class="single_widget">
-                                <h2>Мы Вконтакте</h2>
-                                <div class="sidebar sidebar-left">
-                                    <!-- VK Widget -->
-                                    <div id="vk_groups"></div>
-                                    <script type="text/javascript">
-                                        VK.Widgets.Group("vk_groups", {mode: 0, width: "223", height: "290"}, 43651229);
-                                    </script>
-                                </div>
-                            </div>
-
-
-                            <div class="single_widget">
-                                <ul class="nav nav-tabs custom-tabs" role="tablist">
-                                    <li role="presentation" class="active"><a href="#recentComment" aria-controls="home" role="tab" data-toggle="tab" aria-expanded="true">Комментрии</a></li>
-                                    <li role="presentation" class=""><a href="#recentBall" aria-controls="messages" role="tab" data-toggle="tab" aria-expanded="false">Оценки</a></li>
-                                </ul>
-                                <div class="tab-content">
-
-                                    <?= LastComments::widget() ?>
-                                    <?= LastEstimations::widget() ?>
-                                </div>
-                            </div>
-
-
-
+                    <div class="col-lg-3 col-md-3 col-sm3">
+                        <div class="footer_widget  fadeInRightBig">
+                            <h2>Статистика</h2>
+                            <!--LiveInternet counter--><script type="text/javascript"><!--
+                                           document.write("<a href='http://www.liveinternet.ru/click' " +
+                                        "target=_blank><img src='//counter.yadro.ru/hit?t22.6;r" +
+                                        escape(document.referrer) + ((typeof (screen) == "undefined") ? "" :
+                                        ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+                                                screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+                                        ";" + Math.random() +
+                                        "' alt='' title='LiveInternet: показано число просмотров за 24" +
+                                        " часа, посетителей за 24 часа и за сегодня' " +
+                                        "border='0' width='88' height='31'><\/a>")
+                                //--></script><!--/LiveInternet-->
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <footer id="footer">
-            <div class="footer_top">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm3">
-                            <div class="footer_widget  fadeInLeftBig">
-                                <h2>Обратная связь</h2>
-                                <ul class="labels_nav">
-                                    <li><a rel="nofollow" href="/authors">Правообладателям</a></li>
-                                    <li><a rel="nofollow" href="/advertiser">Рекламодателям</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-3 col-sm3">
-                            <div class="footer_widget  fadeInRightBig">
-                                <h2>Статистика</h2>
-                                <!--LiveInternet counter--><script type="text/javascript"><!--
-                                               document.write("<a href='http://www.liveinternet.ru/click' " +
-                                            "target=_blank><img src='//counter.yadro.ru/hit?t22.6;r" +
-                                            escape(document.referrer) + ((typeof (screen) == "undefined") ? "" :
-                                            ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
-                                                    screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
-                                            ";" + Math.random() +
-                                            "' alt='' title='LiveInternet: показано число просмотров за 24" +
-                                            " часа, посетителей за 24 часа и за сегодня' " +
-                                            "border='0' width='88' height='31'><\/a>")
-                                    //--></script><!--/LiveInternet-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <script src="/js/jquery.min.js"></script>
-        <script src="/js/bootstrap.min.js"></script> 
-        <script src="/js/slick.min.js"></script> 
-        <script src="/js/custom.js"></script>
-    </body>
+        </div>
+    </footer>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script> 
+    <script src="/js/slick.min.js"></script> 
+    <script src="/js/custom.js"></script>
+</body>
 </html>
