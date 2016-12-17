@@ -1,2 +1,9 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /authors
+Disallow: /dimmpoll
+Disallow: ?reply
+Host: kinoextra.com
+Sitemap: http://kinoextra.com/Sitemapxml
+
+
