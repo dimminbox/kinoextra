@@ -1,5 +1,6 @@
 <?php
 use app\widgets\Poll\Poll;
+use app\widgets\Social\Social;
 ?>
 <li class="fadeInDown">
 
@@ -56,6 +57,7 @@ use app\widgets\Poll\Poll;
             <?= $model->getVideo() ?>
         <?php endif; ?>
     </div>
+    <?= Social::widget(); ?>
     <?= \spanjeta\comments\CommentsWidget::widget(['model' => $model]); ?>
 
 </li>

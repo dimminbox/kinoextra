@@ -15,4 +15,5 @@
         ]);
         ?>
     </ul>
+    <?= app\widgets\Social\Social::widget(); ?>
 </div>

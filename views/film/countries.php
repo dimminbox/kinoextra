@@ -16,4 +16,5 @@
         <?php endforeach; ?>
         ?>
     </ul>
+    <?= Poll::widget(['model' => $model->id]) ?>
 </div>
