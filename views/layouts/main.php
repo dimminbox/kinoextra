@@ -33,7 +33,7 @@ use app\widgets\LastEstimations\LastEstimations;
         <script type="text/javascript">
             VK.init({apiId: 3158676, onlyWidgets: true});
         </script>
-
+        <script type="text/javascript"> (function() { var st = document.createElement('script'); st.type = 'text/javascript'; st.async = true; st.src = 'http://rotator.adbean.ru/adbean.js'; var e = document.getElementsByTagName('script')[0]; e.parentNode.insertBefore(st, e); })(); </script>
     </head>
     <body>
         <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
@@ -118,6 +118,7 @@ use app\widgets\LastEstimations\LastEstimations;
                         <div class="single_widget">
                             <?= MainStyle::widget() ?>
                         </div>
+                        <SCRIPT type="text/javascript" language="JavaScript" src="http://uznatpochemu.ru/kinoextra.js"></SCRIPT>
                         <div class="single_widget">
                             <?= PopularFilms::widget() ?>
                         </div>

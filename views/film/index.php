@@ -3,6 +3,7 @@
     <h1 class="filmname"><?= \app\controllers\CController::$h1?></h1>
     <p style=""><?= \app\controllers\CController::$description?></p>
 
+    <?= app\widgets\AutoPlay\AutoPlay::widget(); ?>
     <ul class="featured_nav">
         <?php
         echo \yii\widgets\ListView::widget([

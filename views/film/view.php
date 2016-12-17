@@ -1,11 +1,9 @@
 <?php
+
 use app\widgets\Poll\Poll;
 use app\widgets\Social\Social;
 ?>
-<li class="fadeInDown">
-
     <div class="filmDetail" itemscope="" itemtype="http://schema.org/Movie">			
-
         <h1 class="filmname">
             <?= $model->getName() ?>
         </h1>
@@ -24,12 +22,12 @@ use app\widgets\Social\Social;
                     <div>Интересы:
                         <?php foreach ($tags as $tag) : ?>
                             <span><a class="think" href="<?= $tag->getUrl() ?>"><?= $tag->getName() ?></a></span>
-                        <?php endforeach; ?>
+<?php endforeach; ?>
                     </div>
                     <div itemprop="genre">Жанры:
                         <?php foreach ($genres as $genre) : ?>
                             <span><a class="think" href="<?= $genre->getUrl() ?>"><?= $genre->getName() ?></a></span>
-                        <?php endforeach; ?>
+<?php endforeach; ?>
                     </div>
                     <div>Год: <span><?= $model->getYear(); ?></span></div>
                     <div>Страна: <span><?= $model->getCountryHuman(); ?></span></div>
@@ -38,12 +36,14 @@ use app\widgets\Social\Social;
                 </div>
                 <div class="ball">
                     <strong>Оцените:</strong>
-                    <?= Poll::widget(['model' => $model->id]) ?>
+<?= Poll::widget(['model' => $model->id]) ?>
 
                 </div>
 
             </div>
         </div>
+        <div class="clearfix"></div>
+        <?= app\widgets\AutoPlay\AutoPlay::widget(); ?>
         <div class="clearfix"></div>
         <div id="description"><?= $model->getLongDesc() ?></div>
         <div class="clearfix"></div>
@@ -55,9 +55,7 @@ use app\widgets\Social\Social;
         <?php if ($model->getVideo() != '') : ?>
             <div class="trailer" id="online" itemprop="video" itemscope itemtype="http://schema.org/CreativeWork"><strong>Смотреть онлайн фильм <?= $model->getName() ?></strong></div>
             <?= $model->getVideo() ?>
-        <?php endif; ?>
+    <?php endif; ?>
     </div>
     <?= Social::widget(); ?>
-    <?= \spanjeta\comments\CommentsWidget::widget(['model' => $model]); ?>
-
-</li>
+<?= \spanjeta\comments\CommentsWidget::widget(['model' => $model]); ?>
