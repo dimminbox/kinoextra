@@ -88,7 +88,7 @@ use app\widgets\LastEstimations\LastEstimations;
                                 </li>
                                 <li><a href="/actors">По актёрам</a></li>
                                 <li><a href="/film/countries">По странам</a></li>
-                                <li><a href="/film/interesy">По интересам</a></li>
+                                <li><a href="/film/tags">По интересам</a></li>
                             </ul>
                         </div>
                         <div class="search"><a class="search_icon" href="#"><i class="fa fa-search"></i></a>

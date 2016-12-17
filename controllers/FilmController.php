@@ -37,19 +37,18 @@ class FilmController extends CController {
 
         $films = \app\models\BestFilms::find()->joinWith(['style', 'lang', 'comment'])
                         ->orderBy('rating DESC')->groupBy('best_films.id')->limit(50)->distinct();
-        
+
         $dataProvider = new ActiveDataProvider([
             'query' => $films,
             'pagination' => false
         ]);
-        
+
         return $this->render('index', [
                     'dataProvider' => $dataProvider,
-                    'best'=>true
+                    'best' => true
         ]);
-        
     }
-    
+
     public function actionIndex($url = '', $page = 0, $genre = '', $year = 0, $country = '', $tag = '') {
 
 
@@ -133,6 +132,31 @@ class FilmController extends CController {
         ]);
     }
 
+    public function actionTags() {
+
+        CController::$metaTitle = (isset(Yii::$app->params['_seo_tag_title'])) ? Yii::$app->params['_seo_tag_title'] : '';
+        CController::$metaDescription = (isset(Yii::$app->params['_seo_tag_description'])) ? Yii::$app->params['_seo_tag_description'] : '';
+        CController::$h1 = 'Фильмы по интересам';
+
+        $abc = array();
+        $alphafit = array();
+        foreach (range(chr(0xC0), chr(0xDF)) as $b)
+            $abc[] = iconv('CP1251', 'UTF-8', $b);
+
+        $_tags = \app\models\Tag::find()->orderBy('weight DESC, name ASC')->andWhere(['active' => 1])->all();
+
+        foreach ($_tags as $tag) {
+            $first = str_split($tag->getName(), 2);
+            $alphafit[$first[0]][] = $tag;
+        }
+
+        ksort($alphafit);
+        
+
+        return $this->render('tags', [
+                    'alphavit' => $alphafit,
+        ]);
+    }
 
     public function actionCountries() {
 
