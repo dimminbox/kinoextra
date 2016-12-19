@@ -117,15 +117,16 @@ use app\widgets\LastEstimations\LastEstimations;
                 <div class="col-lg-3 col-md-3 col-sm-4">
                     <div class="left_sidebar">
                         <div class="single_widget">
-                            <?= MainStyle::widget() ?>
+                            <?= MainStyle::widget(['style'=> \app\controllers\CController::$style]) ?>
                         </div>
-                        <SCRIPT type="text/javascript" language="JavaScript" src="http://uznatpochemu.ru/kinoextra.js"></SCRIPT>
+                        <div class="single_widget">
+                            <h2>Интересное</h2>
+                            <SCRIPT type="text/javascript" language="JavaScript" src="http://uznatpochemu.ru/kinoextra.js"></SCRIPT>    
+                        </div>
                         <div class="single_widget">
                             <?= PopularFilms::widget() ?>
                         </div>
-                        <div class="single_widget">
-                            <h2>Интересные вещи</h2>
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-8">

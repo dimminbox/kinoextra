@@ -7,13 +7,19 @@ use Yii;
 
 class MainStyle extends Widget
 {
-
+    public $style;
     public $limit = 5;
     public function run()
     {
         parent::run();
-
-        $styles = Style::find()->andWhere(['main'=>1])->orderBy('sort DESC')->all();
+        
+        $stylesParent = Style::find()->andWhere(['parent'=>0])->orderBy('sort DESC')->all();
+        if ($this->style!='') {
+            $style = Style::find()->andWhere(['url'=>$this->style])->one();
+            if (!empty($style))
+            $styles = Style::find()->andWhere(['parent'=>$style->id])->orderBy('sort DESC')->all();
+        }
+        $styles = (!empty($styles)) ? $styles : $stylesParent;
         
         if (empty($styles)) return '';
         

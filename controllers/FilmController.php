@@ -60,6 +60,7 @@ class FilmController extends CController {
             $films->andWhere(['Tag.url' => $tag, 'Tag.active' => 1]);
         }
         if ($url != '') {
+            CController::$style = $url;
             $films->andWhere(['style.url' => $url]);
         }
         if ($genre != '') {

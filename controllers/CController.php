@@ -16,7 +16,8 @@ class CController extends Controller {
     public static $description;
     public static $metaTitle;
     public static $metaDescription;
-
+    public static $style='';
+    
     public function beforeAction($action) {
 
         if (!parent::beforeAction($action)) {
