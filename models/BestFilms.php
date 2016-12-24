@@ -29,7 +29,7 @@ class BestFilms extends \yii\db\ActiveRecord {
     public function rules() {
         return [
                 [['id', 'image', 'year', 'url', 'visited', 'rating'], 'required'],
-                [['id', 'visited'], 'integer'],
+                [['id', 'visited','key'], 'integer'],
                 [['rating'], 'number'],
                 [['image', 'year', 'url'], 'string', 'max' => 512],
         ];
