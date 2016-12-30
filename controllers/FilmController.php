@@ -30,6 +30,7 @@ class FilmController extends CController {
     }
 
     public function actionBest() {
+    
         CController::$metaTitle = (isset(Yii::$app->params['_seo_best_title'])) ? Yii::$app->params['_seo_best_title'] : '';
         CController::$metaDescription = (isset(Yii::$app->params['_seo_best_description'])) ? Yii::$app->params['_seo_best_description'] : '';
         CController::$h1 = CController::$metaTitle;

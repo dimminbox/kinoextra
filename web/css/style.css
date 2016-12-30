@@ -138,6 +138,7 @@ div.zvezda {
     text-align: left;
     width: 103.4%;  
     color: #fff;
+    clear: both;
 }
 .gsc-search-button {
     display: none;
