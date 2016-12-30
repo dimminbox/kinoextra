@@ -23,11 +23,7 @@ use app\widgets\LastEstimations\LastEstimations;
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <meta name="google-site-verification" content="uq96ABvgY1Z93C6JMuRA42DiUu9d5xJY5ncAMi2Oo-I" />
         <meta name="revisit-after" content="1 days" />
-        <!--[if lt IE 9]>
-        <script src="assets/js/html5shiv.min.js"></script>
-        <script src="assets/js/respond.min.js"></script>
-        <![endif]-->
-
+        
         <!-- Put this script tag to the <head> of your page -->
         <script type="text/javascript" src="//vk.com/js/api/openapi.js?63"></script>
         <meta name='yandex-verification' content='6c8c6572d093b4a9' />
