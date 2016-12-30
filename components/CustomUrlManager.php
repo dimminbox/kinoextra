@@ -31,16 +31,16 @@ class CustomUrlManager extends \yii\web\UrlManager {
             elseif (isset($params['year']))
                 $url = '/films/year/' . $params['year'];
             elseif (isset($params['style']))
-                $url = $params['style'];
+                $url = '/'.$params['style'];
             elseif (isset($params['genre']))
-                $url = $params['genre'];
+                $url = '/'.$params['genre'];
             elseif (isset($params['url']))
-                $url = $params['url'];
+                $url = '/'.$params['url'];
             else
                 $url = '';
             
             if (isset($params['page']))
-                return '/'.$url . "/page/" . $params['page'];
+                return $url . "/page/" . $params['page'];
             else
                 return '/';
         }
