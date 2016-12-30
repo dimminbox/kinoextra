@@ -40,7 +40,7 @@ class CustomUrlManager extends \yii\web\UrlManager {
                 $url = '';
             
             if (isset($params['page']))
-                return $url . "/page/" . $params['page'];
+                return '/'.$url . "/page/" . $params['page'];
             else
                 return '/';
         }
