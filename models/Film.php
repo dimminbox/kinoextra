@@ -142,6 +142,9 @@ class Film extends \yii\db\ActiveRecord {
         
         $pathResized = '/imageCache/';
         $file = Yii::getAlias('@webroot').'/images/film/' . $this->image;
+        
+        if (!file_exists($file)) return '';
+        
         $fileCache = Yii::getAlias('@webroot').$pathResized . $this->image;        
         $_name = "{$pathResized}{$width}_{$height}_{$this->image}";
         
