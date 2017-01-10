@@ -27,6 +27,9 @@ use app\widgets\LastEstimations\LastEstimations;
         <!-- Put this script tag to the <head> of your page -->
         <script type="text/javascript" src="//vk.com/js/api/openapi.js?63"></script>
         <script type="text/javascript"> (function() { var st = document.createElement('script'); st.type = 'text/javascript'; st.async = true; st.src = 'http://rotator.adbean.ru/adbean.js'; var e = document.getElementsByTagName('script')[0]; e.parentNode.insertBefore(st, e); })(); </script>
+        
+        <!--noindex--><div id="amsb"></div><!--/noindex--><!--noindex--><script type="text/javascript" src="//c.am15.net/delay-loader/delay-loader.min.js?s=52459&d=10000&f=sb" class="amct"></script><!--/noindex-->
+        
         <meta name='yandex-verification' content='6c8c6572d093b4a9' />
         <script type="text/javascript">
             VK.init({apiId: 3158676, onlyWidgets: true});
@@ -118,7 +121,10 @@ use app\widgets\LastEstimations\LastEstimations;
                         <div class="single_widget">
                             <h2>Интересное</h2>
                             <SCRIPT type="text/javascript" language="JavaScript" src="http://uznatpochemu.ru/kinoextra.js"></SCRIPT>
+                            <div id="bn_81457c7fb3">загрузка...</div>
+			    <script type="text/javascript" src="//recreativ.ru/rcode.81457c7fb3.js"></script> 
                         </div>
+                        
                         <div class="single_widget">
                             <?= PopularFilms::widget() ?>
                         </div>
@@ -153,6 +159,10 @@ use app\widgets\LastEstimations\LastEstimations;
                                 <?= LastComments::widget() ?>
                                 <?= LastEstimations::widget() ?>
                             </div>
+                            
+                            <div id="bn_1c953428bb">загрузка...</div>
+			    <script type="text/javascript" src="//recreativ.ru/rcode.1c953428bb.js"></script> 
+
                         </div>
 
 
