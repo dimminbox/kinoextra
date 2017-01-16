@@ -121,8 +121,21 @@ use app\widgets\LastEstimations\LastEstimations;
                         <div class="single_widget">
                             <h2>Интересное</h2>
                             <SCRIPT type="text/javascript" language="JavaScript" src="http://uznatpochemu.ru/kinoextra.js"></SCRIPT>
-                            <div id="bn_81457c7fb3">загрузка...</div>
-			    <script type="text/javascript" src="//recreativ.ru/rcode.81457c7fb3.js"></script> 
+                            
+                            <!-- Composite Start -->
+			    <div id="M326274ScriptRootC616115">
+				    <div id="M326274PreloadC616115">
+				    Загрузка...
+				</div>
+				    <script>
+					    (function(){
+					var D=new Date(),d=document,b='body',ce='createElement',ac='appendChild',st='style',ds='display',n='none',gi='getElementById';
+					var i=d[ce]('iframe');i[st][ds]=n;d[gi]("M326274ScriptRootC616115")[ac](i);try{var iw=i.contentWindow.document;iw.open();iw.writeln("<ht"+"ml><bo"+"dy></bo"+"dy></ht"+"ml>");iw.close();var c=iw[b];}
+					catch(e){var iw=d;var c=d[gi]("M326274ScriptRootC616115");}var dv=iw[ce]('div');dv.id="MG_ID";dv[st][ds]=n;dv.innerHTML=616115;c[ac](dv);
+					var s=iw[ce]('script');s.async='async';s.defer='defer';s.charset='utf-8';s.src="//jsc.tovarro.com/k/i/kinoextra.com.616115.js?t="+D.getYear()+D.getMonth()+D.getDate()+D.getHours();c[ac](s);})();
+				</script>
+			    </div>
+			    <!-- Composite End -->
                         </div>
                         
                         <div class="single_widget">
@@ -159,12 +172,14 @@ use app\widgets\LastEstimations\LastEstimations;
                                 <?= LastComments::widget() ?>
                                 <?= LastEstimations::widget() ?>
                             </div>
-                            
-                            <div id="bn_1c953428bb">загрузка...</div>
-			    <script type="text/javascript" src="//recreativ.ru/rcode.1c953428bb.js"></script> 
 
                         </div>
-
+			<div class="single_widget">
+                            <h2>Интересное</h2>
+                            <!-- Composite Start -->
+			    <div id="bn_1c953428bb">загрузка...</div>
+			    <script type="text/javascript" src="//recreativ.ru/rcode.1c953428bb.js"></script> 
+                        </div>
 
 
                     </div>
